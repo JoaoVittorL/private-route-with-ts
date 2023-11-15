@@ -3,17 +3,17 @@ import Cookie from "js-cookie";
 import { useRouter } from "next/navigation";
 import { Button } from "./styles";
 
-export default function Home() {
+export default function Dashboard() {
   const router = useRouter();
 
-  function handleLogin() {
-    Cookie.set("auth_token", "kjahbsdajsbdkjbabdasdbabd");
-    router.push("/dashboard");
+  function handleLogout() {
+    Cookie.remove("auth_token");
+    router.push("/");
   }
 
   return (
     <div>
-      <Button onClick={handleLogin}>OI</Button>
+      <Button onClick={handleLogout}>Logout</Button>
     </div>
   );
 }
